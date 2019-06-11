@@ -61,21 +61,13 @@
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>查看</el-dropdown-item>
           <el-dropdown-item>新增</el-dropdown-item>
-          <el-dropdown-item @click="dialogVisible = true">退出登录</el-dropdown-item>
-            <el-dialog
-             title="提示"
-            :visible.sync="dialogVisible"
-            width="30%"
-            :before-close="handleClose">
-            <span>这是一段信息</span>
-            <span slot="footer" class="dialog-footer">
-              <el-button @click="dialogVisible = false">取 消</el-button>
-              <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
-            </span>
-          </el-dialog>
+          <el-dropdown-item divided @click.native="logout">退出登录</el-dropdown-item>
+          
         </el-dropdown-menu>
       </el-dropdown>
-      <span>王小虎</span>
+
+      <span>Cherry</span>
+      
     </el-header>
     
     <el-main>
@@ -116,18 +108,33 @@ export default {
       };
       return {
         tableData: Array(20).fill(item),
-        dialogVisible: false
+        sysUserName: '',
+				sysUserAvatar: ''
       }
     },
     methods: {
-      handleClose(done) {
-        this.$confirm('确认关闭？')
-          .then(_ => {
-            done();
-          })
-          .catch(_ => {});
-      }
-    }
+      //退出登录
+			logout: function () {
+				var _this = this;
+				this.$confirm('确认退出吗?', '提示', {
+					//type: 'warning'
+				}).then(() => {
+					sessionStorage.removeItem('user');
+					_this.$router.push('/login');
+				}).catch(() => {
+
+				});
+			},
+    },
+    mounted() {
+			var user = sessionStorage.getItem('user');
+			if (user) {
+				user = JSON.parse(user);
+				this.sysUserName = user.name || '';
+				this.sysUserAvatar = user.avatar || '';
+			}
+
+		}
 }
 </script>
 
