@@ -48,21 +48,7 @@ export default {
         var _this = this;
         this.$refs.ruleForm.validate((valid) => {
           if (valid) {
-            this.logining = true;
-            var loginParams = { username: this.ruleForm.account, password: this.ruleForm.checkPass };
-            requestLogin(loginParams).then(data => {
-              this.logining = false;
-              let { msg, code, user } = data;
-              if (code !== 200) {
-                this.$message({
-                  message: msg,
-                  type: 'error'
-                });
-              } else {
-                sessionStorage.setItem('user', JSON.stringify(user));
-                this.$router.push({ path: '/home' });
-              }
-            });
+            this.$router.push({ path: '/home' });
           } else {
             console.log('error submit!!');
             return false;
