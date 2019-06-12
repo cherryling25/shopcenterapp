@@ -4,19 +4,19 @@
     
       <!--<router-link to="/">app</router-link> |
       <router-link to="/login">Login</router-link>-->
-      <login></login>
+      
    
   </div>
 </template>
 
 <!--2 行为：处理逻辑-->
 <script>
-import Login from './views/Login'
+//import Login from './views/Login'
 
 export default {
   name: 'App',
   components: {
-    Login
+    //Login
   }
 }
 </script>

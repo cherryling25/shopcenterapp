@@ -12,7 +12,7 @@
     <el-checkbox class="remember">记住密码</el-checkbox>
 
     <el-form-item style="width:100%;" class="twobutton">
-      <el-button type="primary" style="width:42%;" @click.native.prevent="handleSubmit" :loading="logining">登录</el-button>
+      <el-button type="primary" style="width:42%;" @click.native.prevent="handleSubmit">登录</el-button>
       <el-button type="primary" style="width:42%;" @click="resetForm('ruleForm')">重置</el-button>
     </el-form-item>
 
