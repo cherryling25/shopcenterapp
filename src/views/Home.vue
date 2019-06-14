@@ -8,9 +8,15 @@
       <el-submenu index="1">
         <template slot="title"><i class="el-icon-message"></i>商品管理</template>
         <el-menu-item-group>
-          <el-menu-item index="1-1" @click.native="productinfo">商品档案</el-menu-item>
-          <el-menu-item index="1-2" @click.native="productstock">商品库存</el-menu-item>
-          <el-menu-item index="1-3">商品标签</el-menu-item>
+          <router-link to="/productinfo" class="r1">
+            <el-menu-item index="1-1">商品档案</el-menu-item>
+          </router-link>
+          <router-link to="/productstock" class="r1">
+            <el-menu-item index="1-2">商品库存</el-menu-item>
+          </router-link>
+          <router-link to="/productlabel" class="r1">
+            <el-menu-item index="1-3">商品标签</el-menu-item>
+          </router-link>
         </el-menu-item-group>
       </el-submenu>
 
@@ -53,40 +59,25 @@
     </el-header>
     
     <el-main>
-      <!--<el-table :data="tableData">
-        <el-table-column prop="date" label="日期" width="140">
-        </el-table-column>
-        <el-table-column prop="name" label="姓名" width="120">
-        </el-table-column>
-        <el-table-column prop="address" label="地址">
-        </el-table-column>
-      </el-table>-->
-    <productinfo></productinfo>
-    <!-- <productstock></productstock>-->
+      <!--<productinfo></productinfo>-->
+      <router-view></router-view>
+      
     </el-main>
+
   </el-container>
   </el-container>
   </div>
 </template>
 
 <script>
-import productinfo from '../components/GoodsManagement/productinfo.vue'
-//import productstock from '../components/GoodsManagement/productstock.vue'
-
+//import productinfo from '../components/GoodsManagement/productinfo.vue'
 export default {
   name: 'home',
-  components: {
-   productinfo,
-   //productstock
+  component: {
+    //productinfo
   },
   data() {
-      const item = {
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      };
       return {
-        tableData: Array(20).fill(item),
         sysUserName: '',
 				sysUserAvatar: ''
       }
@@ -103,15 +94,7 @@ export default {
 				}).catch(() => {
 
 				});
-      },
-      productinfo:function(){
-        this.$router.push('GoodsManagement/productinfo');
-      },
-      
-      productstock:function(){
-        this.$router.push('GoodsManagement/productstock');
-
-      },
+      }
     },
     mounted() {
 			var user = sessionStorage.getItem('user');
@@ -141,5 +124,9 @@ export default {
 
   .el-header h2{
     float: left;
+  }
+
+  .r1{
+    text-decoration: none;
   }
 </style>

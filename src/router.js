@@ -4,6 +4,7 @@ import Login from './views/Login.vue'
 import Home from './views/Home.vue'
 import productinfo from './components/GoodsManagement/productinfo.vue'
 import productstock from './components/GoodsManagement/productstock.vue'
+import productlabel from './components/GoodsManagement/productlabel.vue'
 
 Vue.use(Router)
 
@@ -16,15 +17,12 @@ export default new Router({
     },
     {
       path: '/home',
-      component: Home
-    },
-    {
-      path: '/GoodsManagement/productinfo',
-      component: productinfo
-    },
-    {
-      path: '/GoodsManagement/productstock',
-      component: productstock
+      component: Home,
+      children: [
+        { path: '/productinfo', component: productinfo },
+        { path: '/productstock', component: productstock },
+        { path: '/productlabel', component: productlabel }
+      ]
     }
   ]
 })
