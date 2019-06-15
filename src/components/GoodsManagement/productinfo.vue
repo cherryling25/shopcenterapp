@@ -20,7 +20,7 @@
         <el-divider></el-divider>
 
         <div class="formtable">
-            <el-table :data="tableData" stripe style="width: 100%" height="250">
+            <el-table :data="tableData" stripe style="width: 100%">
               <el-table-column prop="date" label="日期" width="180">
               </el-table-column>
 
@@ -183,8 +183,20 @@ export default {
           date: '2016-05-03',
           name: '王小虎',
           address: '上海市普陀区金沙江路 1516 弄'
+         }, {
+          date: '2016-05-03',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1516 弄'
+         }, {
+          date: '2016-05-03',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1516 弄'
+         }, {
+          date: '2016-05-03',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1516 弄'
         }]
-          // 数据没有增加
+          
       };
     },
     methods: {
@@ -204,7 +216,7 @@ export default {
 <style scoped>
 .formtable{
   width: 1175px;
-  height: 450px;
+
 }
 .el-col .el-input {
   margin-top: 29px;
