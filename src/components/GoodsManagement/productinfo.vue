@@ -9,7 +9,7 @@
           </el-form-item>
 
           <el-form-item>
-            <el-input v-model="formInline.user" placeholder="商品名称"></el-input>
+            <el-input v-model="formInline.user1" placeholder="商品名称"></el-input>
           </el-form-item>
           
           <el-form-item>
@@ -165,7 +165,7 @@ export default {
         input8: '4000-5566-08',
         formInline: {
           user: '',
-          region: ''
+          user1: ''
         },
         currentPage1: 4,
         tableData: [{
@@ -282,5 +282,8 @@ label {
   margin-top: 20px;
 }
 
-
+.block{
+  margin-left: 650px;
+  margin-top: 20px;
+}
 </style>
