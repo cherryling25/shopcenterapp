@@ -76,6 +76,9 @@ export default {
   component: {
     //productinfo
   },
+  mounted() {
+			this.$router.push({ path: '/home' });
+	},
   data() {
       return {
         sysUserName: '',

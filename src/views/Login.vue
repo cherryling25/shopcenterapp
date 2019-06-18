@@ -20,7 +20,7 @@
 </template>
 
 <script>
-
+import { requestLogin } from '../api/api';
 export default {
   name : 'login',
   data() {
@@ -48,7 +48,19 @@ export default {
         var _this = this;
         this.$refs.ruleForm.validate((valid) => {
           if (valid) {
-            this.$router.push({ path: '/home' });
+
+            var loginParams = { accountName: this.ruleForm.account, inputedPassword: this.ruleForm.checkPass };
+            requestLogin(loginParams).then(data => {
+              if (!data) {
+                this.$message({
+                  message: 'Incorrect userName or password',
+                  type: 'error'
+                });
+              } else {
+                this.$router.push({ path: '/productinfo' });
+              }
+            });
+           
           } else {
             console.log('error submit!!');
             return false;
