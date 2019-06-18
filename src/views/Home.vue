@@ -59,7 +59,7 @@
     </el-header>
     
     <el-main>
-      <!--<productinfo></productinfo>-->
+      
       <router-view></router-view>
       
     </el-main>
@@ -70,11 +70,11 @@
 </template>
 
 <script>
-//import productinfo from '../components/GoodsManagement/productinfo.vue'
+
 export default {
   name: 'home',
   component: {
-    //productinfo
+   
   },
   mounted() {
 			this.$router.push({ path: '/home' });
@@ -90,7 +90,6 @@ export default {
 			logout: function () {
 				var _this = this;
 				this.$confirm('确认退出吗?', '提示', {
-					//type: 'warning'
 				}).then(() => {
 					sessionStorage.removeItem('user');
 					_this.$router.push('/login');
