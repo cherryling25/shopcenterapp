@@ -26,8 +26,8 @@ export default {
   data() {
       return {
         ruleForm: {
-          account: '',
-          checkPass: ''
+          account: 'admin',
+          checkPass: '12345'
         },
         rules: {
           account: [
