@@ -20,6 +20,7 @@
                     </el-form-item>
                 </el-form>
             </div>
+            <el-divider></el-divider>
             <div class="formtable">
                 <el-table :data="tableData" stripe style="width: 100%">
                 <el-table-column prop="date" label="ID" width="180">
